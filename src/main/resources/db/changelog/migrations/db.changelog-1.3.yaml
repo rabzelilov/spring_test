@@ -1,0 +1,43 @@
+databaseChangeLog:
+  - changeSet:
+      id: orders-1-3
+      author: rabzelilov
+      preConditions:
+        onFail: MARK_RAN
+        not:
+          tableExists:
+            tableName: orders
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: order_pkey
+                  name: ORDER_ID
+                  type: INTEGER
+              - column:
+                  constraints:
+                    nullable: false
+                    unique: true
+                    foreignKeyName: SELLER_ID
+                    references: sellers (SELLER_ID)
+                  name: SELLER_ID
+                  type: INTEGER
+              - column:
+                  name: ORDER_TIMESTAP
+                  type: TIMESTAMP
+              - column:
+                  name: ORDER_TOTAL
+                  type: INTEGER
+              - column:
+                  constraints:
+                    nullable: false
+                    unique: true
+                    foreignKeyName: CUSTOMER_ID
+                    references: customers (CUSTOMER_ID)
+                  name: CUSTOMER_ID
+                  type: INTEGER
+            tableName: orders

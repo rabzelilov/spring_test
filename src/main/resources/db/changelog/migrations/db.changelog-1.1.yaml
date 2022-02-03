@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - changeSet:
+      id: sellers-1-1
+      author: rabzelilov
+      preConditions:
+        onFail: MARK_RAN
+        not:
+          tableExists:
+            tableName: sellers
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: SELLER_PKEY
+                  name: SELLER_ID
+                  type: INTEGER
+              - column:
+                  constraints:
+                    nullable: false
+                  name: SELLER_NAME
+                  type: VARCHAR(250)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: PASSWORD
+                  type: VARCHAR(400)
+              - column:
+                  name: CREATE_ON
+                  type: DATETIME
+              - column:
+                  name: QUOTA
+                  type: INTEGER
+              - column:
+                  name: PRODUCT
+                  type: VARCHAR(255)
+              - column:
+                  name: EXPIRES_ON
+                  type: DATETIME
+              - column:
+                  name: ADMIN_USER
+                  type: VARCHAR(400)
+            tableName: sellers
