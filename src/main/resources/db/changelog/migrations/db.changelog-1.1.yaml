@@ -1,0 +1,56 @@
+databaseChangeLog:
+  - changeSet:
+      id: passport_dna-1-1
+      author: rabzelilov
+      preConditions:
+        onFail: MARK_RAN
+        not:
+          tableExists:
+            tableName: passport_dna
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: PASSPORTDNA_PKEY
+                  name: PASSPORTDNA_ID
+                  type: INTEGER
+              - column:
+                  constraints:
+                    nullable: false
+                  name: PASSPORTDNA_NUMBER
+                  type: VARCHAR(250)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: COLLECTOIN_NAME
+                  type: VARCHAR(250)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: ALLOCATION_DATE
+                  type: DATETIME
+              - column:
+                  constraints:
+                    nullable: true
+                  name: EMPLOYEE_NAME
+                  type: VARCHAR(100)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: STRAIN_NAME
+                  type: VARCHAR(250)
+              - column:
+                  constraints:
+                    nullable: true
+                  name: SYNONIMS_NAME
+                  type: VARCHAR(100)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: PURCHASE
+                  type: BOOLEAN
+            tableName: passport_dna
