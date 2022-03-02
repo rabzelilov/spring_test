@@ -32,7 +32,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                   name: ALLOCATION_DATE
-                  type: DATETIME
+                  type: TIMESTAMP
               - column:
                   constraints:
                     nullable: true

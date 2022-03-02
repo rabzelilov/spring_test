@@ -19,17 +19,9 @@ databaseChangeLog:
                   name: DNA_ID
                   type: INTEGER
               - column:
-                  constraints:
-                    nullable: false
-                    unique: true
-                    foreignKeyName: PASSPORTDNA_ID
-                    references: passport_dna (PASSPORTDNA_ID)
-                  name: PASSPORTDNA_ID
-                  type: INTEGER
-              - column:
                   name: SEQUENCE
                   type: VARCHAR(250)
               - column:
-                  name: DNA_DATETIME
-                  type: DATETIME
+                  name: DNA_TIMESTAMP
+                  type: TIMESTAMP
             tableName: dna

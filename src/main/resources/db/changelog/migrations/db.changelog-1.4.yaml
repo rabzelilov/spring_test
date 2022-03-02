@@ -33,6 +33,6 @@ databaseChangeLog:
                   name: DNA
                   type: VARCHAR(500)
               - column:
-                  name: DNA_DATETIME
-                  type: DATETIME
+                  name: STRAIN_TIMESTAMP
+                  type: TIMESTAMP
             tableName: strain
