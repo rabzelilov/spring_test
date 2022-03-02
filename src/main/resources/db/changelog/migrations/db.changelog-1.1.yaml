@@ -1,12 +1,12 @@
 databaseChangeLog:
   - changeSet:
-      id: sellers-1-1
+      id: passport_dna-1-1
       author: rabzelilov
       preConditions:
         onFail: MARK_RAN
         not:
           tableExists:
-            tableName: sellers
+            tableName: passport_dna
       changes:
         - createTable:
             columns:
@@ -15,32 +15,42 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                     primaryKey: true
-                    primaryKeyName: SELLER_PKEY
-                  name: SELLER_ID
+                    primaryKeyName: PASSPORTDNA_PKEY
+                  name: PASSPORTDNA_ID
                   type: INTEGER
               - column:
                   constraints:
                     nullable: false
-                  name: SELLER_NAME
+                  name: PASSPORTDNA_NUMBER
                   type: VARCHAR(250)
               - column:
                   constraints:
                     nullable: false
-                  name: PASSWORD
-                  type: VARCHAR(400)
+                  name: COLLECTOIN_NAME
+                  type: VARCHAR(250)
               - column:
-                  name: CREATE_ON
+                  constraints:
+                    nullable: false
+                  name: ALLOCATION_DATE
                   type: DATETIME
               - column:
-                  name: QUOTA
-                  type: INTEGER
+                  constraints:
+                    nullable: true
+                  name: EMPLOYEE_NAME
+                  type: VARCHAR(100)
               - column:
-                  name: PRODUCT
-                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+                  name: STRAIN_NAME
+                  type: VARCHAR(250)
               - column:
-                  name: EXPIRES_ON
-                  type: DATETIME
+                  constraints:
+                    nullable: true
+                  name: SYNONIMS_NAME
+                  type: VARCHAR(100)
               - column:
-                  name: ADMIN_USER
-                  type: VARCHAR(400)
-            tableName: sellers
+                  constraints:
+                    nullable: false
+                  name: PURCHASE
+                  type: BOOLEAN
+            tableName: passport_dna

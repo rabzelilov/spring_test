@@ -1,12 +1,12 @@
 databaseChangeLog:
   - changeSet:
-      id: DNA-1-3
+      id: STRAIN-1-4
       author: rabzelilov
       preConditions:
         onFail: MARK_RAN
         not:
           tableExists:
-            tableName: dna
+            tableName: strain
       changes:
         - createTable:
             columns:
@@ -15,21 +15,24 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                     primaryKey: true
-                    primaryKeyName: dna_pkey
-                  name: DNA_ID
+                    primaryKeyName: strain_pkey
+                  name: STRAIN_ID
                   type: INTEGER
               - column:
                   constraints:
                     nullable: false
                     unique: true
-                    foreignKeyName: PASSPORTDNA_ID
-                    references: passport_dna (PASSPORTDNA_ID)
-                  name: PASSPORTDNA_ID
+                    foreignKeyName: PASSPORTSTRAIN_ID
+                    references: passport_strain (PASSPORTSTRAIN_ID)
+                  name: PASSPORTSTRAIN_ID
                   type: INTEGER
               - column:
                   name: SEQUENCE
                   type: VARCHAR(250)
               - column:
+                  name: DNA
+                  type: VARCHAR(500)
+              - column:
                   name: DNA_DATETIME
                   type: DATETIME
-            tableName: dna
+            tableName: strain

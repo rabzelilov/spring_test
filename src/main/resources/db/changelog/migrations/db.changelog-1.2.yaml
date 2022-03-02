@@ -1,12 +1,12 @@
 databaseChangeLog:
   - changeSet:
-      id: customers-1-2
+      id: passport_strain-1-2
       author: rabzelilov
       preConditions:
         onFail: MARK_RAN
         not:
           tableExists:
-            tableName: customers
+            tableName: passport_strain
       changes:
         - createTable:
             columns:
@@ -15,39 +15,42 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                     primaryKey: true
-                    primaryKeyName: CUSTOMERS_PKEY
-                  name: CUSTOMER_ID
+                    primaryKeyName: PASSPORTSTRAIN_PKEY
+                  name: PASSPORTSTRAIN_ID
                   type: INTEGER
               - column:
                   constraints:
                     nullable: false
-                  name: CUST_FIRST_NAME
+                  name: PASSPORTSTRAIN_NUMBER
                   type: VARCHAR(250)
               - column:
-                  name: CUST_LAST_NAME
-                  type: VARCHAR(400)
+                  constraints:
+                    nullable: false
+                  name: COLLECTOIN_NAME
+                  type: VARCHAR(250)
               - column:
-                  name: PHONE_NUMBER1
-                  type: VARCHAR(400)
+                  constraints:
+                    nullable: false
+                  name: ALLOCATION_DATE
+                  type: DATETIME
               - column:
-                  name: PHONE_NUMBER2
-                  type: VARCHAR(400)
+                  constraints:
+                    nullable: true
+                  name: EMPLOYEE_NAME
+                  type: VARCHAR(100)
               - column:
-                  name: CUST_STREER_ADDRESS1
-                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+                  name: STRAIN_NAME
+                  type: VARCHAR(250)
               - column:
-                  name: CUST_STREER_ADDRESS2
-                  type: VARCHAR(255)
+                  constraints:
+                    nullable: true
+                  name: SYNONIMS_NAME
+                  type: VARCHAR(100)
               - column:
-                  name: CUST_CITY
-                  type: VARCHAR(400)
-              - column:
-                  name: CUST_POSTAL_CODE
-                  type: VARCHAR(400)
-              - column:
-                  name: CREDIT_LIMIT
-                  type: INTEGER
-              - column:
-                  name: CUST_EMAIL
-                  type: VARCHAR(400)
-            tableName: customers
+                  constraints:
+                    nullable: false
+                  name: PURCHASE
+                  type: BOOLEAN
+            tableName: passport_strain
