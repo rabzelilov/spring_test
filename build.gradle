@@ -8,6 +8,14 @@ group = 'com.rabzelilov'
 version = '0.0.1-SNAPSHOT'
 //sourceCompatibility = '11'
 
+compileJava {
+    options.compilerArgs += [
+            '-Amapstruct.suppressGeneratorTimestamp=true',
+            '-Amapstruct.suppressGeneratorVersionInfoComment=true',
+            '-Amapstruct.verbose=true'
+    ]
+}
+
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
@@ -20,6 +28,7 @@ repositories {
 
 ext {
     set('springCloudVersion', "2021.0.0")
+    mapstructVersion = "1.5.0.Beta2"
 }
 
 dependencies {
@@ -31,9 +40,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
+    implementation('io.jsonwebtoken:jjwt:0.9.1')
     implementation 'org.liquibase:liquibase-core'
 //    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
     implementation 'org.springframework.kafka:spring-kafka'
+    implementation 'io.openliberty.features:beanValidation-2.0:22.0.0.3'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'org.postgresql:postgresql'
@@ -41,6 +52,9 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.kafka:spring-kafka-test'
     testImplementation 'org.springframework.security:spring-security-test'
+    implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+    testImplementation 'org.testng:testng:7.5', "org.easytesting:fest-assert:1.4"
+    annotationProcessor "org.mapstruct:mapstruct-processor:1.5.0.Beta2"
 }
 
 dependencyManagement {

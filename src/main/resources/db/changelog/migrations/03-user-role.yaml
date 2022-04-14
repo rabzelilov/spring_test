@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: user-role
+      author: rabzelilov
+      preConditions:
+        onFail: MARK_RAN
+        not:
+          tableExists:
+            tableName: user-role
+      changes:
+        - createTable:
+            tableName: user_role
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    unique: true
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    referencedTableName: user
+                    referencedColumnNames: id
+                    foreignKeyName: fk_users_id
+              - column:
+                  name: role_id
+                  type: integer
+                  constraints:
+                    nullable: false
+                    referencedTableName: role
+                    referencedColumnNames: id
+                    foreignKeyName: fk_roles_id

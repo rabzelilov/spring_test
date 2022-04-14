@@ -17,9 +17,11 @@ import java.util.List;
 @EqualsAndHashCode
 public class PassportStrain {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "passport_strain_id_seq")
     @SequenceGenerator(
             name = "passport_strain_id_seq",
-            sequenceName = "passport_strain_id_seq",
+            sequenceName = "SEQ_PASSPORT_STRAIN",
             allocationSize = 1
     )
     @Column(name = "PASSPORTSTRAIN_ID", nullable = false)

@@ -14,9 +14,11 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 public class Dna {
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "dna_id_seq")
     @SequenceGenerator(
         name = "dna_id_seq",
-        sequenceName = "dna_id_seq",
+        sequenceName = "SEQ_DNA",
         allocationSize = 1
     )
     @Column(name = "DNA_ID", nullable = false)
