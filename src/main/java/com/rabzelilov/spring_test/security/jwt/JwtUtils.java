@@ -1,6 +1,6 @@
 package com.rabzelilov.spring_test.security.jwt;
 
-import com.rabzelilov.spring_test.service.impl.UserDetailsImpl;
+import com.rabzelilov.spring_test.security.UserDetailsImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

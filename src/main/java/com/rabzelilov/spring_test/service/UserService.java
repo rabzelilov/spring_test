@@ -16,5 +16,4 @@ public interface UserService {
     UserDto getUser(String username);
     List<User> getUsers();
     Role saveRole(Role role);
-    UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
 }
