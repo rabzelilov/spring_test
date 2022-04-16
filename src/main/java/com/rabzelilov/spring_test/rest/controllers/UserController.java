@@ -1,14 +1,12 @@
 package com.rabzelilov.spring_test.rest.controllers;
 
-import com.rabzelilov.spring_test.dal.entity.User;
-import com.rabzelilov.spring_test.dal.repository.UserRepository;
 import com.rabzelilov.spring_test.mappers.UserMapper;
 import com.rabzelilov.spring_test.rest.models.UserDto;
 import com.rabzelilov.spring_test.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
