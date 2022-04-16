@@ -2,6 +2,7 @@ package com.rabzelilov.spring_test.service;
 
 import com.rabzelilov.spring_test.dal.entity.Role;
 import com.rabzelilov.spring_test.dal.entity.User;
+import com.rabzelilov.spring_test.rest.models.RoleDto;
 import com.rabzelilov.spring_test.rest.models.UserDto;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,5 +16,5 @@ public interface UserService {
     void remove(Long  id);// TODO а где тогда используется маппер?
     UserDto getUser(String username);
     List<User> getUsers();
-    Role saveRole(Role role);
+    Long saveRole(RoleDto roleDto);
 }
