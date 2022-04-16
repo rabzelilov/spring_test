@@ -11,6 +11,7 @@ import com.rabzelilov.spring_test.rest.models.UserDto;
 import com.rabzelilov.spring_test.security.UserDetailsImpl;
 import com.rabzelilov.spring_test.service.UserService;
 import java.util.List;
+import java.util.Optional;
 import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

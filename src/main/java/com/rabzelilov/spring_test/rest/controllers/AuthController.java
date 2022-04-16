@@ -11,6 +11,7 @@ import com.rabzelilov.spring_test.dal.repository.RoleRepository;
 import com.rabzelilov.spring_test.dal.repository.UserRepository;
 import com.rabzelilov.spring_test.security.jwt.JwtUtils;
 import com.rabzelilov.spring_test.security.UserDetailsImpl;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -30,16 +31,17 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/auth")
+@RequiredArgsConstructor
 public class AuthController {
-    AuthenticationManager authenticationManager;
+    private final AuthenticationManager authenticationManager;
 
-    UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    RoleRepository roleRepository;
+    private final RoleRepository roleRepository;
 
-    PasswordEncoder encoder;
+    private final PasswordEncoder encoder;
 
-    JwtUtils jwtUtils;
+    private final JwtUtils jwtUtils;
 
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser( @RequestBody LoginRequest loginRequest) {
