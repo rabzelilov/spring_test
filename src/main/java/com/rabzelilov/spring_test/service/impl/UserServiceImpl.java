@@ -4,11 +4,14 @@ import com.rabzelilov.spring_test.dal.entity.Role;
 import com.rabzelilov.spring_test.dal.entity.User;
 import com.rabzelilov.spring_test.dal.repository.RoleRepository;
 import com.rabzelilov.spring_test.dal.repository.UserRepository;
+import com.rabzelilov.spring_test.mappers.RoleMapper;
 import com.rabzelilov.spring_test.mappers.UserMapper;
+import com.rabzelilov.spring_test.rest.models.RoleDto;
 import com.rabzelilov.spring_test.rest.models.UserDto;
 import com.rabzelilov.spring_test.security.UserDetailsImpl;
 import com.rabzelilov.spring_test.service.UserService;
 import java.util.List;
+import java.util.Optional;
 import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,6 +28,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final UserMapper userMapper;
+    private final RoleMapper roleMapper;
 
     @Override
     public UserDto save(UserDto userDto) {
@@ -41,7 +45,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Override
     public UserDto getUser(String username) {
-        return null;
+        Optional<User> user = userRepository.findByUsername(username);
+        if (user.isPresent()) {
+            return userMapper.modelToDto(user.get());
+        }
+        throw new UsernameNotFoundException("Couldn't find user with given username");
     }
 
     @Override
@@ -60,9 +68,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
 
     @Override
-    public Role saveRole(Role role) {
-        log.info("Save new user {}", role.getName());
-        return roleRepository.save(role);
+    public Long saveRole(RoleDto roleDto) {
+        log.info("Save new user {}", roleDto.getName());
+        Role role = roleRepository.save(roleMapper.dtoToModel(roleDto));
+        return role.getId();
     }
 
 }
