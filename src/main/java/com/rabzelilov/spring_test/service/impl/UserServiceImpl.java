@@ -33,8 +33,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public UserDto save(UserDto userDto) {
         log.info("Save new user {}", userDto.getName());
-        User user = userMapper.dtoToModel(userDto);
-        return userMapper.modelToDto(userRepository.save(user));
+        User user = userMapper.toUser(userDto);
+        return userMapper.toDto(userRepository.save(user));
     }
 
     @Override
@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public UserDto getUser(String username) {
         Optional<User> user = userRepository.findByUsername(username);
         if (user.isPresent()) {
-            return userMapper.modelToDto(user.get());
+            return userMapper.toDto(user.get());
         }
         throw new UsernameNotFoundException("Couldn't find user with given username");
     }

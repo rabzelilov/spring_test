@@ -16,8 +16,9 @@ import java.sql.Timestamp;
         scope = StrainDto.class)
 public class StrainDto {
     private Long id;
+    private String strainName;
     private String strainSequence;
-    private PassportStrain passportStrain;
+    private Long passportStrainId;
     private Timestamp strainTimestamp;
     private String strainDna;
 }
