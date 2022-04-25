@@ -7,10 +7,9 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface DnaMapper {
-    DnaMapper INSTANCE = Mappers.getMapper(DnaMapper.class);
-    DnaDto modelToDto(Dna dna);
-    Dna DtoToModel(DnaDto dnaDto);
-    List<DnaDto> modelToDts(List<Dna> dnaList);
+    DnaDto toDto(Dna dna);
+    Dna toDna(DnaDto dnaDto);
+    List<DnaDto> toDts(List<Dna> dnaList);
 }

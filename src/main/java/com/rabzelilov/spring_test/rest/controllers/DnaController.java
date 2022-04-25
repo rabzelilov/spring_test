@@ -15,9 +15,9 @@ public class DnaController {
 
     private final DnaService dnaService;
 
-    @GetMapping("/dna/{id}")
-    public DnaDto dnaDto (@PathVariable Integer id){
-        Dna dna = dnaService.getDna(id);
-        return DnaMapper.INSTANCE.modelToDto(dna);
-    }
+//    @GetMapping("/dna/{id}")
+//    public DnaDto dnaDto (@PathVariable Integer id){
+//        Dna dna = dnaService.getDna(id);
+//        return DnaMapper.INSTANCE.modelToDto(dna);
+//    }
 }

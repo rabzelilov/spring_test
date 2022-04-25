@@ -23,15 +23,20 @@ public class Strain {
     )
     @Column(name = "STRAIN_ID", nullable = false)
     private Long id;
+
+    @Column(name = "NAME", nullable = false)
+    private String strainName;
+
     @Column(name = "SEQUENCE", nullable = false)
     private String strainSequence;
 
-    @OneToOne(optional = false,cascade = CascadeType.ALL)
+    @OneToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "PASSPORTSTRAIN_ID")
     private PassportStrain passportStrain;
 
     @Column(name = "STRAIN_TIMESTAMP")
     private Timestamp strainTimestamp;
+
     @Column(name = "DNA")
-    private  String strainDna;
+    private String strainDna;
 }

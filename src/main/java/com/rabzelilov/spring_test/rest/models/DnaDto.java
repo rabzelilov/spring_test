@@ -14,7 +14,7 @@ import lombok.Setter;
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id",
         scope = DnaDto.class)
 public class DnaDto {
-    private Integer dnaId;
+    private Long dnaId;
     private String dnaSequence;
     private Timestamp dnaTimestamp;
 }

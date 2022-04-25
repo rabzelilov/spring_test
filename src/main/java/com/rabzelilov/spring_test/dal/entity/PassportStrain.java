@@ -37,7 +37,7 @@ public class PassportStrain {
     private String employeeName;
     @Column(name = "STRAIN_NAME",nullable = false)
     private String strainName;
-    @Column(name = "SYNONIMS_NAME")
+    @Column(name = "SYNONYMS_NAME")
     private String synonymsName;
     @Column(name = "PURCHASE", nullable = false)
     private boolean purchase;

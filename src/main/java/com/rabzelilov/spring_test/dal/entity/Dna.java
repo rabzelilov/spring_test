@@ -22,7 +22,7 @@ public class Dna {
         allocationSize = 1
     )
     @Column(name = "DNA_ID", nullable = false)
-    private Integer dnaId;
+    private Long dnaId;
     @Column
     private String dnaSequence;
     @Column
