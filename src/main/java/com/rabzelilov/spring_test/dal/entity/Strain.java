@@ -24,8 +24,8 @@ public class Strain {
     @Column(name = "STRAIN_ID", nullable = false)
     private Long id;
 
-    @Column(name = "strain_uid")
-    private String strainId;
+//    @Column(name = "strain_uid")
+//    private String strainId;
 
     @Column(name = "NAME", nullable = false)
     private String strainName;

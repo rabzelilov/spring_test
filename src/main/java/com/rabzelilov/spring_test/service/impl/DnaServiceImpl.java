@@ -42,6 +42,11 @@ public class DnaServiceImpl implements DnaService {
 
     @Override
     public List<DnaDto> getDnaList() {
-        return dnaRepository.findAll().stream().map(dnaMapper::toDto).toList();
+        return null;
     }
+
+//    @Override
+//    public List<DnaDto> getDnaList() {
+//        return dnaRepository.findAll().stream().map(dnaMapper::toDto).toList();
+//    }
 }

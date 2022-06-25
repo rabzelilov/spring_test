@@ -50,6 +50,7 @@ public class PassportStrainServiceImpl implements PassportStrainService {
 
     @Override
     public List<PassportStrainDto> getPassportStrains() {
-        return passportStrainRepository.findAll().stream().map(passportStrainMapper::toDto).toList();
+        return null;
+//                passportStrainRepository.findAll().stream().map(passportStrainMapper::toDto).toList();
     }
 }

@@ -50,6 +50,7 @@ public class StrainServiceImpl implements StrainService {
 
     @Override
     public List<StrainDto> getStrains() {
-        return strainRepository.findAll().stream().map(strainMapper::toDto).toList();
+        return null;
+//                strainRepository.findAll().stream().map(strainMapper::toDto).toList();
     }
 }
